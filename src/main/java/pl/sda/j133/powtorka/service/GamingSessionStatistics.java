@@ -1,6 +1,9 @@
 package pl.sda.j133.powtorka.service;
 
 import pl.sda.j133.powtorka.model.User;
+import pl.sda.j133.powtorka.model.structs.GamingSessionTime;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Paweł Recław, AmeN
@@ -23,4 +26,10 @@ public interface GamingSessionStatistics {
      * @return average session time in seconds
      */
     public int calculateAverageSessionTimeInTotalInSeconds(User user);
+
+    public int calculateAverageSessionTimeInLast7DaysSeconds(User user);
+
+    public LocalDateTime findLastSessionDateTime(User user);
+
+    public GamingSessionTime findLastSessionTimes(User user);
 }
