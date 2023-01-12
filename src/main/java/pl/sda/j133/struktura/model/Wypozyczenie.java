@@ -23,13 +23,7 @@ public class Wypozyczenie {
     private double cenaZaDzien;         // cena za dzien wypozyczenia
 
     @ManyToOne
-    private Buty buty;
-
-    @ManyToOne
-    private Narty narty;
-
-    @ManyToOne
-    private Zestaw zestaw;
+    private Produkt produkt;
 
     @OneToOne
     private Zwrot zwrot;

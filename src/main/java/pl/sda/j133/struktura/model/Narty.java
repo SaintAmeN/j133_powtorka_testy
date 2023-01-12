@@ -16,17 +16,20 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Narty {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String nazwa;
-
+public class Narty extends Produkt {
     @OneToOne
     private Zestaw zestaw; // jeśli nie jest w zestawie to zestaw == null
 
-
     @OneToMany
     private Set<Wypozyczenie> wypozyczenia;
+
+    @Override
+    public boolean sprawdzDostepnosc() {
+        if (getZestaw() != null) {
+//            log.info("Nie można wynająć, narty są częścią zestawu.");
+            return false;
+        }
+
+        return !sprawdzCzyWypozyczone();
+    }
 }

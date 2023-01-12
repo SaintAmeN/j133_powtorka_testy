@@ -1,6 +1,7 @@
 package pl.sda.j133.struktura.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,13 +17,9 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Zestaw extends Produkt {
-
+public class SkuterŚnieżny extends Produkt {
     @OneToMany
     private Set<Wypozyczenie> wypozyczenia;
-
-    @OneToMany
-    private Set<Produkt> produkty;
 
     @Override
     public boolean sprawdzDostepnosc() {

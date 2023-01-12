@@ -2,6 +2,7 @@ package pl.sda.j133.struktura.service;
 
 import lombok.extern.java.Log;
 import pl.sda.j133.struktura.model.Buty;
+import pl.sda.j133.struktura.model.Produkt;
 import pl.sda.j133.struktura.model.UmowaWypozyczenia;
 import pl.sda.j133.struktura.model.Wypozyczenie;
 
@@ -37,40 +38,7 @@ public class UmowaService {
         return kwotaFinalna;
     }
 
-    public boolean sprawdzDostepnoscButow(Long id) {
-        Optional<Buty> butyOptional = butyService.pobierz(id);
-        if (butyOptional.isEmpty()) {
-//             throw new EntityNotFoundException("Nie ma takich butów w bazie");
-            log.info("Nie ma takich butów w bazie");
-            return false;
-        }
-
-        Buty buty = butyOptional.get();
-        if (buty.getZestaw() != null) {
-            log.info("Nie można wynająć, buty są częścią zestawu.");
-            return false;
-        }
-
-        Set<Wypozyczenie> wypozyczenia = buty.getWypozyczenia();
-        for (Wypozyczenie wypozyczenie : wypozyczenia) {
-            if (wypozyczenie.getZwrot() == null){
-                log.info("Nie można wynająć, buty są wciąż wypozyczone.");
-                return false;
-            }
-        }
-
-        // Buty:
-        // - istnieją
-        // - nie są częścią zestawu
-        // - nie są wciąż wypożyczone
-        return true;
-    }
-
-    public boolean sprawdzDostepnoscNart() {
-
-    }
-
-    public boolean sprawdzDostepnoscZestawu() {
-
+    public boolean sprawdzDostepnosc(Produkt produkt) {
+        return produkt.sprawdzDostepnosc();
     }
 }
