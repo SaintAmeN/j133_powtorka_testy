@@ -24,9 +24,10 @@ public abstract class Produkt {
     protected String nazwa;
 
     public abstract Set<Wypozyczenie> getWypozyczenia();
+
     public abstract boolean sprawdzDostepnosc();
 
-    protected boolean sprawdzCzyWypozyczone(){
+    protected boolean sprawdzCzyWypozyczone() {
         Set<Wypozyczenie> wypozyczenia = getWypozyczenia();
         for (Wypozyczenie wypozyczenie : wypozyczenia) {
             if (wypozyczenie.getZwrot() == null) {
