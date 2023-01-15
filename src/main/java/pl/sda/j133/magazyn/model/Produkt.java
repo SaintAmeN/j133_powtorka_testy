@@ -12,6 +12,7 @@ import java.util.Set;
  */
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Produkt {
@@ -21,12 +22,12 @@ public class Produkt {
 
     private String nazwa;
 
-    @OneToMany
+    @OneToMany(mappedBy = "produkt", fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<PozycjaSprzedazy> sprzedaze;
 
-    @OneToMany
+    @OneToMany(mappedBy = "produkt", fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<PozycjaDostawy> dostawy;

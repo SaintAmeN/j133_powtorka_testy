@@ -13,6 +13,7 @@ import java.util.Set;
  */
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Dostawa {
@@ -22,7 +23,7 @@ public class Dostawa {
 
     private LocalDateTime dataCzas;
 
-    @OneToMany
+    @OneToMany(mappedBy = "dostawa", fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<PozycjaDostawy> pozycje;

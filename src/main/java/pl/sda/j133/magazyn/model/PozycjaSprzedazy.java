@@ -10,6 +10,7 @@ import lombok.*;
  */
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PozycjaSprzedazy {
@@ -25,8 +26,8 @@ public class PozycjaSprzedazy {
     @EqualsAndHashCode.Exclude
     private Produkt produkt;
 
-    @ManyToOne
+    @ManyToOne()
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Dostawa dostawa;
+    private Sprzedaz sprzedaz;
 }

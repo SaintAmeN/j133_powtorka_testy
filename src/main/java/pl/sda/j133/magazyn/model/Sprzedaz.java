@@ -13,6 +13,7 @@ import java.util.Set;
  */
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Sprzedaz {
@@ -22,7 +23,7 @@ public class Sprzedaz {
 
     private LocalDateTime dataCzas;
 
-    @OneToMany
+    @OneToMany(mappedBy = "sprzedaz")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<PozycjaSprzedazy> pozycje;

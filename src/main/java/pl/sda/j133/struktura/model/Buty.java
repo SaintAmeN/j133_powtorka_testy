@@ -1,10 +1,10 @@
 package pl.sda.j133.struktura.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
@@ -14,7 +14,6 @@ import java.util.Set;
  * @created 12.01.2023
  */
 @Data
-@Builder()
 @Entity
 public class Buty extends Produkt {
 

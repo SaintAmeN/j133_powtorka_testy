@@ -10,6 +10,7 @@ import lombok.*;
  */
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PozycjaDostawy {
